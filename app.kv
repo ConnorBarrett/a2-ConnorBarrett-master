@@ -1,0 +1,85 @@
+BoxLayout:
+    id: mainBox
+    BoxLayout:
+        orientation: 'vertical'
+        BoxLayout:
+            orientation: 'horizontal'
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint_x: 0.3
+                Button:
+                    id: listrequiredButton
+                    text: 'List Required'
+                    on_release: app.press_required()
+                    height: '48dp'
+                    size_hint_y: 0.5
+
+                Button:
+                    id: listcompletedButton
+                    text: 'List Completed'
+                    on_release: app.press_completed()
+                    height: '48dp'
+                    size_hint_y: 0.5
+                Label:
+                    id: words
+                    text: "Add New Item..."
+                    size_hint_y: 1
+                Label:
+                    id: words
+                    text: "Name:"
+                    size_hint_y: 0.5
+                TextInput:
+                    id: addedName
+                    value: ''
+                    size_hint_y: None
+                    height: '48dp'
+                    multiline: False
+                    write_tab: False
+                Label:
+                    id: words
+                    text: "Price:"
+                    size_hint_y: 0.5
+                TextInput:
+                    id: addedPriice
+                    value: ''
+                    size_hint_y: None
+                    height: '48dp'
+                    multiline: False
+                    write_tab: False
+                Label:
+                    id: words
+                    text: "Priority:"
+                    size_hint_y: 0.5
+                TextInput:
+                    id: addedPriority
+                    value: ''
+                    size_hint_y: None
+                    height: '48dp'
+                    multiline: False
+                    write_tab: False
+                Button:
+                    id: addButton
+                    text: 'Add Item'
+                    on_release: app.press_save(addedName.text, addedPrice.text,addedPriority.text)
+                    height: '48dp'
+                    size_hint_y: 0.2
+                Button:
+                    id: clearButton
+                    text: 'Clear'
+                    on_release: app.press_clear()
+                    height: '48dp'
+                    size_hint_y: 0.2
+            BoxLayout:
+                orientation: 'vertical'
+                Label:
+                    id: costLabel
+                    size_hint_y: 0.1
+                    text: app.cost_text
+                GridLayout:
+                    id: entriesBox
+                    cols: 1
+                    orientation: 'vertical'
+        Label:
+            id: statusLabel
+            size_hint_y: 0.1
+            text: app.status_text
